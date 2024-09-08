@@ -7,6 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 .location-finder {
@@ -16,4 +17,15 @@
   transform: translate(-50%, -50%);
   height: 50px;
   z-index: 2;
+}
+
+/* App.css */
+.carousel-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.carousel-container img {
+  width: 100%;
+  height: auto;
 }

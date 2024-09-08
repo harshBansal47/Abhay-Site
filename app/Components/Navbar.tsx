@@ -21,7 +21,7 @@ export default function Navbar() {
                     {/* Left side navigation */}
                     <div className="hidden md:flex items-center space-x-6">
                         <a href="/" className={`hover:text-sky-600 text-md ${path === '/' ? 'text-sky-600' : ''}`}>Home</a>
-                        <a href="/services" className={`hover:text-sky-600 text-md ${path === '/services' ? 'text-sky-600' : ''}`}>Services</a>
+                        <a href="#services" className={`hover:text-sky-600 text-md ${path === '/services' ? 'text-sky-600' : ''}`}>Services</a>
                     </div>
 
                     {/* Center Logo */}
@@ -33,8 +33,8 @@ export default function Navbar() {
 
                     {/* Right Side Navigation */}
                     <div className="hidden md:flex items-center space-x-6">
-                        <a href="/about" className={`hover:text-sky-600 text-md ${path === '/about' ? 'text-sky-600' : ''}`}>About</a>
-                        <a href="/contact" className={`hover:text-sky-600 text-md ${path === '/contact' ? 'text-sky-600' : ''}`}>Contact</a>
+                        <a href="#about" className={`hover:text-sky-600 text-md ${path === '#about' ? 'text-sky-600' : ''}`}>About</a>
+                        <a href="#contact" className={`hover:text-sky-600 text-md ${path === '/contact' ? 'text-sky-600' : ''}`}>Contact</a>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -54,19 +54,19 @@ export default function Navbar() {
                             <span>Home</span>
                         </div>
                     </Link>
-                    <Link href="/services" className={`ml-12 ${path === '/services' ? 'text-sky-600' : ''}`}>
+                    <Link href="#services" className={`ml-12 ${path === '/services' ? 'text-sky-600' : ''}`}>
                         <div className="flex space-x-3 hover:text-sky-600 text-md my-2">
                             <ServerIcon className="w-6 h-6" />
                             <span>Services</span>
                         </div>
                     </Link>
-                    <Link href="/about" className={`ml-12 ${path === '/about' ? 'text-sky-600' : ''}`}>
+                    <Link href="#about" className={`ml-12 ${path === '#about' ? 'text-sky-600' : ''}`}>
                         <div className="flex space-x-3 hover:text-sky-600 text-md my-2">
                             <Info className="w-6 h-6" />
                             <span>About</span>
                         </div>
                     </Link>
-                    <Link href="/contact" className={`ml-12 ${path === '/contact' ? 'text-sky-600' : ''}`}>
+                    <Link href="#contact" className={`ml-12 ${path === '#contact' ? 'text-sky-600' : ''}`}>
                         <div className="flex space-x-3 hover:text-sky-600 text-md my-2">
                             <Mail className="w-6 h-6" />
                             <span>Contact</span>
