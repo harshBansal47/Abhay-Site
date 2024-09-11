@@ -136,7 +136,7 @@ export default function Services() {
   return (
     <section
     id = "services"
-      className="w-full h-auto bg-fixed flex flex-col py-10 relative mt-24"
+      className="w-full h-auto bg-fixed flex flex-col gap-10 py-10 relative mt-24 overflow-hidden"
       style={{
         backgroundImage: `url(${ServicesBackground.src})`,
         backgroundPosition: 'center',
@@ -162,9 +162,9 @@ export default function Services() {
 
       {/* Main Content Section */}
       <div className="container mx-auto mt-28">
-        {serviceData.map((service, index) => (
+      {serviceData.map((service, index) => (
           <motion.section
-            className={`w-full py-10 ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}
+            className={`w-full py-20 ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}
             key={index}
             initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -175,19 +175,24 @@ export default function Services() {
               {service.imageLeft && (
                 <motion.div
                   className="flex-1 my-4"
-                  initial={{ opacity: 0, x: -50 }}
+                  initial={{ opacity: 0, x: -150 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.6 ,delay:0.4}} 
                 >
                   <img
                     src={service.imgSrc}
                     alt={service.title}
-                    className="mx-auto mb-4 w-80 h-80 object-cover"
+                    className="mx-auto mb-4 w-96 h-96 object-cover"
                   />
                 </motion.div>
               )}
-              <div
-                className={`flex-1 sm:mx-5 md:mx-10 lg:mx-20 xl:mx-32 ${service.imageLeft ? 'md:ml-10 lg:mr-10' : 'md:mr-10 lg:ml-20'
+             <motion.div className='flex-1 my-4 p-4'
+             
+              initial={service.imageLeft?{ opacity: 0, x: 150 }:{ opacity: 0, x: -150 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 ,delay:0.4}}>
+             <div
+                className={`flex-1 sm:mx-5 md:mx-10 lg:mx-20 xl:mr-24 ${service.imageLeft ? 'md:ml-10 lg:mr-10' : 'md:mr-10 lg:ml-20'
                   } text-left`}
               >
                 <h2 className="text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 text-gray-800">
@@ -201,18 +206,19 @@ export default function Services() {
                   ))}
                 </ul>
               </div>
+             </motion.div>
 
               {!service.imageLeft && (
                 <motion.div
                   className="flex-1 my-4"
-                  initial={{ opacity: 0, x: 50 }}
+                  initial={{ opacity: 0, x: 150 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.6 ,delay:0.4}}
                 >
                   <img
                     src={service.imgSrc}
                     alt={service.title}
-                    className="mx-auto mb-4 w-80 h-80 object-cover"
+                    className="mx-auto mb-4 w-96 h-96 object-cover"
                   />
                 </motion.div>
               )}

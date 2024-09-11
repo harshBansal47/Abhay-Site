@@ -16,7 +16,7 @@ export default function Navbar() {
     const path = usePathname();
     return (
         <nav className={`bg-gray-100 text-gray-900 shadow-sm ${nunito.className} fixed top-0 left-0 right-0 z-50`}>
-            <div className="px-4 lg:px-8 sm:px-6 mx-auto max-w-7xl">
+            <div className="md:px-4 lg:px-8 px-2 mx-auto max-w-7xl">
                 <div className="flex justify-between md:justify-center items-center h-24">
                     {/* Left side navigation */}
                     <div className="hidden md:flex items-center space-x-6">
@@ -25,7 +25,7 @@ export default function Navbar() {
                     </div>
 
                     {/* Center Logo */}
-                    <div className="h-48 w-48 mx-4 rounded-full flex justify-center items-center">
+                    <div className="h-48 w-48 mx-4 rounded-full flex md:justify-center items-center">
                         <a href="/" className="w-full h-full">
                             <img src="/logo.png" alt="gst suvidha kendra" className="h-full object-contain" />
                         </a>
@@ -39,7 +39,7 @@ export default function Navbar() {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden text-gray-800"
+                        className="md:hidden text-gray-800 text-center"
                         onClick={() => setNavClicked(!navClicked)}
                     >
                         {navClicked ? <X className="w-6 h-6 hover:text-sky-600 mr-10" /> : <AlignJustify className="w-6 h-6 hover:text-sky-600 mr-10" />}
@@ -73,7 +73,6 @@ export default function Navbar() {
                         </div>
                     </Link>
                 </div>
-
             </div>
 
             {/* Divider */}

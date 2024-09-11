@@ -12,10 +12,10 @@ import AboutUs from "./Components/AboutUs";
 
 export default function Home() {
   return (
-    <div className="w-full min-h-screen mt-28">
-      <Carousel/>
-      <AboutUs/>
-      <Services/>
+    <div className="w-full min-h-screen mt-[96px]">
+      <Carousel/> 
+      <AboutUs/> 
+       <Services/>
       <Misclenious/>
       <GoogleMap/>
       <ScrollButton/>

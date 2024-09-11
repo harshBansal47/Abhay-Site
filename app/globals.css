@@ -21,11 +21,14 @@
 
 /* App.css */
 .carousel-container {
-  width: 80%;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 .carousel-container img {
   width: 100%;
+  max-height: 80vh;
   height: auto;
+  object-fit: cover; /* This ensures the image covers the container while preserving its aspect ratio */
 }
