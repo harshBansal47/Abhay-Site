@@ -1,5 +1,6 @@
 "use client"
 import { motion } from 'framer-motion';
+import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material';
 
 import Adhar from '@/public/adhar.png';
 import BillPayment from '@/public/bill-payments.png';
@@ -11,6 +12,7 @@ import Recharge from '@/public/recharges.png';
 import Tour from '@/public/tour.png';
 import Website from '@/public/website.png';
 import ServicesBackground from '@/public/services-bg.jpg';
+import { ChevronDown } from 'lucide-react';
 
 
 const servicesData = [
@@ -162,107 +164,131 @@ const miscellaneousServices = [
 export default function Services() {
   return (
     <section
-      className="w-full h-auto bg-fixed flex flex-col py-10 relative mt-24 overflow-hidden"
-      style={{
-        backgroundImage: `url(${ServicesBackground.src})`,
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-      }}
-    >
-      {/* Sticky Header */}
-      <div className="absolute top-0 z-20 bg-white/70 py-4 w-full">
-        <div className="text-center">
-          <h1 className="text-4xl font-extrabold text-gray-600 mb-4">
-            Our Miscellanious Services
-          </h1>
-          <div className="w-80 h-1 bg-neutral-700 rounded-full mx-auto mb-4"></div>
-          <p className="text-sm text-gray-600">
-            We care for every financial need
-          </p>
-        </div>
+    className="w-full h-auto bg-fixed flex flex-col py-10 relative mt-24 overflow-hidden"
+    style={{
+      backgroundImage: `url(${ServicesBackground.src})`,
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+    }}
+  >
+    {/* Sticky Header */}
+    <div className="absolute top-0 z-20 bg-white/80 py-6 w-full shadow-lg">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">
+          Our Miscellaneous Services
+        </h1>
+        <div className="w-40 h-1 bg-teal-500 rounded-full mx-auto mb-4"></div>
+        <p className="text-md text-gray-700">
+          We care for every financial need
+        </p>
+      </div>
+    </div>
+
+    {/* Main Content Section */}
+    <div className="container mx-auto mt-32">
+      {/* Miscellaneous Services */}
+      <div className="my-8 mx-4">
+        {miscellaneousServices.map((service, index) => (
+          <div
+            className="my-2 px-4 py-2 text-gray-700 text-lg lg:text-xl flex items-center border-b border-gray-300 hover:bg-gray-100 transition-colors"
+            key={index}
+          >
+            <span className="text-teal-500 mr-2">{'>'}</span>
+            <span>{service}</span>
+          </div>
+        ))}
       </div>
 
-      {/* Overlay */}
-      {/* <div className="absolute inset-0 bg-white/50 z-10"></div> */}
-
-      {/* Main Content Section */}
-      <div className="container mx-auto mt-28 ">
-        <div className='my-6 ml-8'>
-          {miscellaneousServices.map((service, index) => (
-            <div
-              className='my-2 mx-4 text-gray-700 text-lg lg:text-xl flex items-center border-b border-gray-300 pb-2 hover:bg-gray-100 transition-all'
-              key={index}
-            >
-              <span className='text-primary mr-2'>{'>'}</span>
-              <span>{service}</span>
-            </div>
-          ))}
-        </div>
-        {servicesData.map((service, index) => (
-          <motion.section
-            className={`w-full py-20 ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}
-            key={index}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}  // Ensures the animation runs only once
-            transition={{ duration: 0.6 }}
+      {/* Services Section */}
+      {servicesData.map((service, index) => (
+        <Accordion
+          key={index}
+          className={`my-3 ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}
+          TransitionProps={{ unmountOnExit: true }}
+          sx={{
+            boxShadow: 1,
+            borderRadius: 2,
+            '&:before': {
+              display: 'none',
+            },
+            '& .MuiAccordionSummary-root': {
+              padding: 2,
+              borderBottom: '1px solid rgba(0, 0, 0, 0.125)',
+            },
+            '& .MuiAccordionSummary-content': {
+              margin: 0,
+            },
+            '& .MuiAccordionDetails-root': {
+              padding: 2,
+            },
+          }}
+        >
+          <AccordionSummary
+            expandIcon={<ChevronDown />} // Modern icon
+            aria-controls={`panel${index}-content`}
+            id={`panel${index}-header`}
           >
-            <div className="container mx-auto flex flex-col md:flex-row items-center">
+            <Typography className="text-xl font-semibold text-gray-800">
+              {service.title}
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <div className="flex flex-col md:flex-row items-center">
               {service.imageLeft && (
                 <motion.div
                   className="flex-1 my-4"
                   initial={{ opacity: 0, x: -150 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6,delay:0.4 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
                 >
                   <img
                     src={service.imgSrc}
                     alt={service.title}
-                    className="mx-auto mb-4 w-96 h-96 object-cover"
+                    className="mx-auto mb-4 w-80 h-80 object-cover rounded-md shadow-sm"
                   />
                 </motion.div>
               )}
-             <motion.div className='flex-1 my-4'
-              initial={service.imageLeft?{ opacity: 0, x: 150 }:{ opacity: 0, x: -150 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6,delay:0.4 }}>
-             <div
-                className={`flex-1 sm:mx-5 p-4 md:mx-10 lg:mx-20 xl:mr-24 ${service.imageLeft ? 'md:ml-10 lg:mr-10' : 'md:mr-10 lg:ml-20'
-                  } text-left`}
+              <motion.div
+                className="flex-1 my-4 p-4"
+                initial={service.imageLeft ? { opacity: 0, x: 150 } : { opacity: 0, x: -150 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <h2 className="text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 text-gray-800">
-                  {service.title}
-                </h2>
-                <ul className="list-disc list-inside space-y-2 text-gray-600 text-lg lg:text-xl">
-                  {service.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="leading-relaxed">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-             </motion.div>
-
+                <div
+                  className={`flex-1 ${service.imageLeft ? 'md:ml-10' : 'md:mr-10'} text-left`}
+                >
+                  <ul className="list-disc list-inside space-y-2 text-gray-600 text-base">
+                    {service.items.map((item, itemIndex) => (
+                      <li key={itemIndex} className="leading-relaxed">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
               {!service.imageLeft && (
                 <motion.div
                   className="flex-1 my-4"
                   initial={{ opacity: 0, x: 150 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6,delay:0.4 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
                 >
                   <img
                     src={service.imgSrc}
                     alt={service.title}
-                    className="mx-auto mb-4 w-96 h-96 object-cover"
+                    className="mx-auto mb-4 w-80 h-80 object-cover rounded-md shadow-sm"
                   />
                 </motion.div>
               )}
             </div>
-            {service.misc&&<div className='my-4 mx-5 text-gray-600 text-lg lg:text-xl'>{'=>'} {service.misc}</div>}
-          </motion.section>
-        ))}
-      </div>
-    </section>
+            {service.misc && (
+              <div className="my-4 mx-5 text-gray-600 text-base">{'=> '} {service.misc}</div>
+            )}
+          </AccordionDetails>
+        </Accordion>
+      ))}
+    </div>
+  </section>
   );
 }
