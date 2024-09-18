@@ -161,11 +161,11 @@ export default function Services() {
       </div>
 
       {/* Main Content Section */}
-      <div className="container mx-auto mt-36">
+      <div className="container mx-auto mt-36 overflow-hidden" style={{maxWidth:"80%"}}>
         {serviceData.map((service, index) => (
           <Accordion
             key={index}
-            className={`my-3 ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}
+            className={`my-3 bg-gray-300`}
             TransitionProps={{ unmountOnExit: true }}
             sx={{
               boxShadow: 1,

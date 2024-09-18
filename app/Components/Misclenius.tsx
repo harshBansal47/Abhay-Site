@@ -186,7 +186,7 @@ export default function Services() {
     </div>
 
     {/* Main Content Section */}
-    <div className="container mx-auto mt-32">
+    <div className="container mx-auto mt-32 overflow-hidden" style={{maxWidth:'80%'}}>
       {/* Miscellaneous Services */}
       <div className="my-8 mx-4">
         {miscellaneousServices.map((service, index) => (
@@ -204,7 +204,7 @@ export default function Services() {
       {servicesData.map((service, index) => (
         <Accordion
           key={index}
-          className={`my-3 ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}
+          className={`my-3 bg-gray-300`}
           TransitionProps={{ unmountOnExit: true }}
           sx={{
             boxShadow: 1,
