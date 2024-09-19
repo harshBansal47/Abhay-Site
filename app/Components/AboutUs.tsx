@@ -1,6 +1,6 @@
 // src/AboutUs.js
 
-
+import AboutImage from '@/public/about.jpeg';
 const AboutUs = () => {
   return (
     <section  id = "about" className="bg-gray-100 py-12 lg:py-24">
@@ -25,7 +25,7 @@ const AboutUs = () => {
           {/* Image Section */}
           <div className="lg:w-1/2 lg:pl-12 mt-8 lg:mt-0">
             <img
-              src="https://via.placeholder.com/600x400"
+              src={AboutImage.src}
               alt="About Us"
               className="w-full h-auto rounded-lg shadow-lg"
             />

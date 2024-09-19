@@ -1,8 +1,7 @@
 "use client"
 import { motion } from 'framer-motion';
 import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material';
-import { FaChevronDown } from "react-icons/fa";
-import ServicesBackground from '@/public/services-bg.jpg';
+import Background_Services from '@/public/slide-5.png';
 import AccountingImage from '@/public/Accounting.png';
 import Audit from '@/public/Audit.png';
 import DSC from '@/public/DSC.png';
@@ -139,14 +138,24 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="w-full h-auto bg-fixed flex flex-col py-10 relative mt-24 overflow-hidden"
+      className="w-full h-auto bg-fixed flex flex-col py-4 relative  overflow-hidden"
       style={{
-        backgroundImage: `url(${ServicesBackground.src})`,
+        backgroundImage: `url(${Background_Services.src})`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
+        position: 'relative',
       }}
     >
+
+<div style={{
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundColor: 'rgba(0, 0, 0, 0.5)', // Adjust the rgba values as needed
+}} />
       {/* Sticky Header */}
       <div className="absolute top-0 z-20 bg-neutral-50 py-6 w-full shadow-md">
         <div className="text-center">
@@ -165,7 +174,7 @@ export default function Services() {
         {serviceData.map((service, index) => (
           <Accordion
             key={index}
-            className={`my-3 bg-gray-300`}
+            className={`my-6  bg-gray-300`}
             TransitionProps={{ unmountOnExit: true }}
             sx={{
               boxShadow: 1,

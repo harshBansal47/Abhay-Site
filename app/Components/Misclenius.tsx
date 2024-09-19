@@ -11,7 +11,7 @@ import Pancard from '@/public/pncard.png';
 import Recharge from '@/public/recharges.png';
 import Tour from '@/public/tour.png';
 import Website from '@/public/website.png';
-import ServicesBackground from '@/public/services-bg.jpg';
+import ServicesBackground from '@/public/slide-5.png';
 import { ChevronDown } from 'lucide-react';
 
 
@@ -164,14 +164,23 @@ const miscellaneousServices = [
 export default function Services() {
   return (
     <section
-    className="w-full h-auto bg-fixed flex flex-col py-10 relative mt-24 overflow-hidden"
+    className="w-full h-auto bg-fixed flex flex-col py-10 relative overflow-hidden"
     style={{
       backgroundImage: `url(${ServicesBackground.src})`,
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
+      position: 'relative',
     }}
   >
+    <div style={{
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundColor: 'rgba(0, 0, 0, 0.5)', // Adjust the rgba values as needed
+}} />
     {/* Sticky Header */}
     <div className="absolute top-0 z-20 bg-white/80 py-6 w-full shadow-lg">
       <div className="text-center">
@@ -186,12 +195,12 @@ export default function Services() {
     </div>
 
     {/* Main Content Section */}
-    <div className="container mx-auto mt-32 overflow-hidden" style={{maxWidth:'80%'}}>
+    <div className="container mx-auto mt-32 overflow-hidden z-20" style={{maxWidth:'80%'}}>
       {/* Miscellaneous Services */}
       <div className="my-8 mx-4">
         {miscellaneousServices.map((service, index) => (
           <div
-            className="my-2 px-4 py-2 text-gray-700 text-lg lg:text-xl flex items-center border-b border-gray-300 hover:bg-gray-100 transition-colors"
+            className="my-2 px-4 py-2 text-gray-100 text-lg lg:text-xl flex items-center border-b border-gray-300 hover:bg-gray-100 hover:text-gray-700 transition-colors"
             key={index}
           >
             <span className="text-teal-500 mr-2">{'>'}</span>
